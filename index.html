@@ -1,0 +1,77 @@
+<html>
+<head>
+	<title> Even Odd Application by Sanskar </title>
+	<style>
+		* {font-size : 40px ; }
+		body {background-color : azure ; }
+		.btn { background-color : red ; color : white ; margin-right : 3%}
+	</style>
+</head>
+<body>
+<center>
+	<h1> Even Odd Application </h1>
+	<form onsubmit = "check()">
+		<input type = "number"  placeholder = "Enter a integere"  id = "num" />
+		<br/> <br/>
+		<input type = "submit"  value = "M1"  class = "btn" />
+		<input type = "submit"  value = "M2" class = "btn" />
+		<input type = "submit"  value = "M3" class = "btn" />
+	</form>
+	<h2 id = "msg"> </h2>
+
+	<script>
+		function check()
+		{
+			event.preventDefault();
+			let num = document.getElementById("num"); 
+			let msg = document.getElementById("msg");
+			let ele = document.activeElement.value;
+			
+			if (num.value == "")
+			{
+				alert("Enter a integer");
+				msg.innerHTML = "";
+				num.focus();
+				return ;
+	
+			}
+			let n = parseInt(num.value);
+			if (ele == "M1")
+			{
+				let ans = n % 2 == 0 ? "even" : "odd" ;
+				msg.innerHTML = "M1---> " + ans ; 
+	
+			}	
+			else if (ele == "M2")
+			{
+				let ans = "" ;
+				if (n % 2 == 0)
+					ans = "even";
+				else
+					ans = "odd";
+				msg.innerHTML = "M2 ---> " + ans ;
+			}
+			else if (ele == "M3")
+			{
+				let ans = "" ;
+				switch(n % 2)
+				{
+					case 0 :   ans = "even";
+							break;
+					case 1 :  ans = "odd";
+							break;
+					case -1 : ans = "odd";
+							break;
+				
+				}
+				msg.innerHTML = "M3 --->" + ans; 
+				
+
+			}
+
+		}
+	</script>
+
+</center>
+</body>
+</html>
